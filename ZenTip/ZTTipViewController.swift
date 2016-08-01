@@ -45,7 +45,7 @@ final class ZTTipViewController: UIViewController, UITableViewDelegate, UITableV
         self.splitTextField = UITextField()
         self.splitLabel = UILabel()
         self.totalLabel = UILabel()
-        self.descriptionTableView = UITableView()
+        self.descriptionTableView = UITableView(frame: CGRectZero)
 
         if let coder = coder {
             super.init(coder: coder)
@@ -64,30 +64,49 @@ final class ZTTipViewController: UIViewController, UITableViewDelegate, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = UIColor(netHex: 0xCEDEF1)
-
-        welcomeLabel.text = "How was your service"
-        welcomeLabel.font = UIFont(name: "Wawati SC", size: 36)
+        welcomeLabel.text = "How was your service?"
+        welcomeLabel.numberOfLines = 2
+        welcomeLabel.font = UIFont(name: "Avenir-Book", size: 40)
         welcomeLabel.textColor = UIColor.whiteColor()
+        welcomeLabel.textAlignment = .Center
 
         backgroundImageView.image = UIImage(named: "background")
-        backgroundImageView.contentMode = .ScaleAspectFit
+        backgroundImageView.contentMode = .ScaleToFill
 
-        amountTextField.font = UIFont(name: "Avenir-Book", size: 20)
-        amountTextField.textColor = UIColor.whiteColor()
-        amountTextField.attributedPlaceholder = NSAttributedString(string:"Type here to enter your city..", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName :UIFont(name: "Avenir-Book", size: 20)!])
-        amountTextField.textAlignment = .Center
-        amountTextField.delegate = self
+//        amountTextField.font = UIFont(name: "Avenir-Book", size: 20)
+//        amountTextField.textColor = UIColor.whiteColor()
+//        amountTextField.attributedPlaceholder = NSAttributedString(string:"Type here to enter your city..", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName :UIFont(name: "Avenir-Book", size: 20)!])
+//        amountTextField.textAlignment = .Center
+//        amountTextField.delegate = self
+
+        descriptionTableView.backgroundColor = UIColor.clearColor()
+        descriptionTableView.separatorColor = UIColor.clearColor()
+        descriptionTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        descriptionTableView.delegate = self
+        descriptionTableView.dataSource = self
+
+
 
         otherServicesButton.setTitle("tipping for other services?", forState: .Normal)
-        otherServicesButton.titleLabel?.font = UIFont(name: "Wawati SC", size: 10)
+        otherServicesButton.titleLabel?.font = UIFont(name: "Avenir-Book", size: 8)
         otherServicesButton.titleLabel?.textColor = UIColor.whiteColor()
-
         otherServicesButton.addTarget(self, action: #selector(onOtherServicesButtonPressed), forControlEvents: .TouchUpInside)
 
-        descriptionTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+
+        setConstraints()
+
+
+        for family: String in UIFont.familyNames()
+        {
+            print("\(family)")
+            for names: String in UIFont.fontNamesForFamilyName(family)
+            {
+                print("== \(names)")
+            }
+        }
 
     }
+
 
 
     override func loadView() {
@@ -95,11 +114,11 @@ final class ZTTipViewController: UIViewController, UITableViewDelegate, UITableV
         self.view.addSubview(backgroundImageView)
         self.view.addSubview(welcomeLabel)
         self.view.addSubview(otherServicesButton)
-        self.view.addSubview(amountTextField)
-        self.view.addSubview(percentLabel)
-        self.view.addSubview(splitTextField)
-        self.view.addSubview(splitLabel)
-        self.view.addSubview(totalLabel)
+//        self.view.addSubview(amountTextField)
+//        self.view.addSubview(percentLabel)
+//        self.view.addSubview(splitTextField)
+//        self.view.addSubview(splitLabel)
+//        self.view.addSubview(totalLabel)
         self.view.addSubview(descriptionTableView)
 
     }
@@ -120,12 +139,22 @@ final class ZTTipViewController: UIViewController, UITableViewDelegate, UITableV
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
 
         cell.textLabel?.textColor = UIColor.whiteColor()
+        cell.textLabel?.font = UIFont(name: "Avenir-Book", size: 30)
+        cell.backgroundColor = UIColor.clearColor()
+        cell.contentView.frame = UIEdgeInsetsInsetRect(cell.contentView.frame, UIEdgeInsetsMake(100, 100, 100, 100))
+
+
+
 
         cell.textLabel?.text = descriptions[indexPath.row]
 
 
         return cell
         
+    }
+
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+
     }
 
 
@@ -141,6 +170,41 @@ final class ZTTipViewController: UIViewController, UITableViewDelegate, UITableV
 
 
     }
+
+
+    //MARK: AutoLayout
+
+    // FIXME: Still getting some broken constraints - look into autoresizng
+    func setConstraints() {
+
+        let margins = view.layoutMarginsGuide
+
+        backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
+        backgroundImageView.topAnchor.constraintEqualToAnchor(view.topAnchor, constant: 0).active = true
+        backgroundImageView.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor, constant: 0).active = true
+        backgroundImageView.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor).active = true
+        backgroundImageView.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor).active = true
+
+        welcomeLabel.translatesAutoresizingMaskIntoConstraints = false
+        welcomeLabel.topAnchor.constraintEqualToAnchor(view.topAnchor, constant: 15).active = true
+        welcomeLabel.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor, constant: 50).active = true
+        welcomeLabel.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor).active = true
+
+
+        descriptionTableView.translatesAutoresizingMaskIntoConstraints = false
+        descriptionTableView.centerYAnchor.constraintEqualToAnchor(view.centerYAnchor, constant: 0).active = true
+        descriptionTableView.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor, constant: 50).active = true
+        descriptionTableView.widthAnchor.constraintEqualToAnchor(nil, constant: 150).active = true
+        descriptionTableView.heightAnchor.constraintEqualToAnchor(nil, constant: 150).active = true
+
+
+        otherServicesButton.translatesAutoresizingMaskIntoConstraints = false
+        otherServicesButton.bottomAnchor.constraintEqualToAnchor(margins.bottomAnchor, constant: 5).active = true
+        otherServicesButton.trailingAnchor.constraintEqualToAnchor(margins.trailingAnchor, constant: 5).active = true
+
+
+    }
+
 
 
 

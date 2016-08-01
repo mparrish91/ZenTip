@@ -8,6 +8,15 @@
 
 import UIKit
 
+public enum UITableViewScrollPosition : Int {
+
+    case None
+    case Top
+    case Middle
+    case Bottom
+}
+
+
 final class ZTTipViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
 
     private var backgroundImageView: UIImageView
@@ -114,6 +123,10 @@ final class ZTTipViewController: UIViewController, UITableViewDelegate, UITableV
         splitPromptLabel.textColor = UIColor.whiteColor()
         splitPromptLabel.textAlignment = .Center
 
+        let indexPath = NSIndexPath(forItem: 1, inSection: 0)
+        descriptionTableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .None, animated: true)
+
+
         resetView()
 
         setConstraints()
@@ -159,7 +172,16 @@ final class ZTTipViewController: UIViewController, UITableViewDelegate, UITableV
         cell.contentView.frame = UIEdgeInsetsInsetRect(cell.contentView.frame, UIEdgeInsetsMake(100, 100, 100, 100))
         cell.selectionStyle = .None
 
+
         cell.textLabel?.text = descriptions[indexPath.row]
+
+        //handling startup
+        if cell.selected == true {
+            cell.backgroundColor = UIColor.clearColor()
+            cell.textLabel?.backgroundColor = UIColor.clearColor()
+            cell.selectedBackgroundView = nil
+            cell.textLabel?.font =  UIFont(name: "Wawati SC", size: 48)
+        }
 
 
         return cell
@@ -167,6 +189,22 @@ final class ZTTipViewController: UIViewController, UITableViewDelegate, UITableV
     }
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+
+        //handling startup
+
+
+        let theCell:UITableViewCell? = tableView.cellForRowAtIndexPath(indexPath)
+
+        if let theCell = theCell {
+            var tableViewCenter:CGPoint = tableView.contentOffset
+            tableViewCenter.y += tableView.frame.size.height/2
+
+            tableView.contentOffset = CGPointMake(0, theCell.center.y-65)
+            tableView.reloadData()
+        }
+
+
+
         var tipPercentages = [0.10,0.15,0.20]
 
         if indexPath.item == 0 {

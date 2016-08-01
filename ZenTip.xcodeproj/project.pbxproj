@@ -1,0 +1,339 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		42FA733E1D4EF6B700736DCA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FA733D1D4EF6B700736DCA /* AppDelegate.swift */; };
+		42FA73401D4EF6B700736DCA /* ZTTipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FA733F1D4EF6B700736DCA /* ZTTipViewController.swift */; };
+		42FA73431D4EF6B700736DCA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42FA73411D4EF6B700736DCA /* Main.storyboard */; };
+		42FA73451D4EF6B700736DCA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42FA73441D4EF6B700736DCA /* Assets.xcassets */; };
+		42FA73481D4EF6B700736DCA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42FA73461D4EF6B700736DCA /* LaunchScreen.storyboard */; };
+		42FA73521D4EF6F800736DCA /* ZTSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FA73511D4EF6F800736DCA /* ZTSection.swift */; };
+		42FA73551D4EF77800736DCA /* ZTOtherServicesObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FA73541D4EF77800736DCA /* ZTOtherServicesObject.swift */; };
+		42FA73571D4EF81A00736DCA /* ZTOtherServicesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FA73561D4EF81A00736DCA /* ZTOtherServicesData.swift */; };
+		42FA73591D4EF83700736DCA /* ZTFadingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FA73581D4EF83700736DCA /* ZTFadingLabel.swift */; };
+		42FA735B1D4EFDC100736DCA /* ZTOtherServicesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FA735A1D4EFDC100736DCA /* ZTOtherServicesTableViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		42FA733A1D4EF6B700736DCA /* ZenTip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZenTip.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		42FA733D1D4EF6B700736DCA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		42FA733F1D4EF6B700736DCA /* ZTTipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTTipViewController.swift; sourceTree = "<group>"; };
+		42FA73421D4EF6B700736DCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		42FA73441D4EF6B700736DCA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		42FA73471D4EF6B700736DCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		42FA73491D4EF6B700736DCA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		42FA73511D4EF6F800736DCA /* ZTSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZTSection.swift; sourceTree = "<group>"; };
+		42FA73541D4EF77800736DCA /* ZTOtherServicesObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZTOtherServicesObject.swift; path = ../ZTOtherServicesObject.swift; sourceTree = "<group>"; };
+		42FA73561D4EF81A00736DCA /* ZTOtherServicesData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZTOtherServicesData.swift; sourceTree = "<group>"; };
+		42FA73581D4EF83700736DCA /* ZTFadingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZTFadingLabel.swift; sourceTree = "<group>"; };
+		42FA735A1D4EFDC100736DCA /* ZTOtherServicesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZTOtherServicesTableViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		42FA73371D4EF6B700736DCA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		42FA73311D4EF6B700736DCA = {
+			isa = PBXGroup;
+			children = (
+				42FA733C1D4EF6B700736DCA /* ZenTip */,
+				42FA733B1D4EF6B700736DCA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		42FA733B1D4EF6B700736DCA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				42FA733A1D4EF6B700736DCA /* ZenTip.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		42FA733C1D4EF6B700736DCA /* ZenTip */ = {
+			isa = PBXGroup;
+			children = (
+				42FA733D1D4EF6B700736DCA /* AppDelegate.swift */,
+				42FA73531D4EF76600736DCA /* Models */,
+				42FA73501D4EF6DD00736DCA /* ViewControllers */,
+				42FA734F1D4EF6CF00736DCA /* Helpers */,
+				42FA73411D4EF6B700736DCA /* Main.storyboard */,
+				42FA73441D4EF6B700736DCA /* Assets.xcassets */,
+				42FA73461D4EF6B700736DCA /* LaunchScreen.storyboard */,
+				42FA73491D4EF6B700736DCA /* Info.plist */,
+			);
+			path = ZenTip;
+			sourceTree = "<group>";
+		};
+		42FA734F1D4EF6CF00736DCA /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				42FA73581D4EF83700736DCA /* ZTFadingLabel.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		42FA73501D4EF6DD00736DCA /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				42FA733F1D4EF6B700736DCA /* ZTTipViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		42FA73531D4EF76600736DCA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				42FA73511D4EF6F800736DCA /* ZTSection.swift */,
+				42FA73541D4EF77800736DCA /* ZTOtherServicesObject.swift */,
+				42FA73561D4EF81A00736DCA /* ZTOtherServicesData.swift */,
+				42FA735A1D4EFDC100736DCA /* ZTOtherServicesTableViewController.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		42FA73391D4EF6B700736DCA /* ZenTip */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 42FA734C1D4EF6B700736DCA /* Build configuration list for PBXNativeTarget "ZenTip" */;
+			buildPhases = (
+				42FA73361D4EF6B700736DCA /* Sources */,
+				42FA73371D4EF6B700736DCA /* Frameworks */,
+				42FA73381D4EF6B700736DCA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ZenTip;
+			productName = ZenTip;
+			productReference = 42FA733A1D4EF6B700736DCA /* ZenTip.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		42FA73321D4EF6B700736DCA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = MCP;
+				TargetAttributes = {
+					42FA73391D4EF6B700736DCA = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 42FA73351D4EF6B700736DCA /* Build configuration list for PBXProject "ZenTip" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 42FA73311D4EF6B700736DCA;
+			productRefGroup = 42FA733B1D4EF6B700736DCA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				42FA73391D4EF6B700736DCA /* ZenTip */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		42FA73381D4EF6B700736DCA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42FA73481D4EF6B700736DCA /* LaunchScreen.storyboard in Resources */,
+				42FA73451D4EF6B700736DCA /* Assets.xcassets in Resources */,
+				42FA73431D4EF6B700736DCA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		42FA73361D4EF6B700736DCA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42FA73571D4EF81A00736DCA /* ZTOtherServicesData.swift in Sources */,
+				42FA73591D4EF83700736DCA /* ZTFadingLabel.swift in Sources */,
+				42FA73401D4EF6B700736DCA /* ZTTipViewController.swift in Sources */,
+				42FA735B1D4EFDC100736DCA /* ZTOtherServicesTableViewController.swift in Sources */,
+				42FA73551D4EF77800736DCA /* ZTOtherServicesObject.swift in Sources */,
+				42FA733E1D4EF6B700736DCA /* AppDelegate.swift in Sources */,
+				42FA73521D4EF6F800736DCA /* ZTSection.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		42FA73411D4EF6B700736DCA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				42FA73421D4EF6B700736DCA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		42FA73461D4EF6B700736DCA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				42FA73471D4EF6B700736DCA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		42FA734A1D4EF6B700736DCA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		42FA734B1D4EF6B700736DCA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		42FA734D1D4EF6B700736DCA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = ZenTip/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = parrish.ZenTip;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		42FA734E1D4EF6B700736DCA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = ZenTip/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = parrish.ZenTip;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		42FA73351D4EF6B700736DCA /* Build configuration list for PBXProject "ZenTip" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				42FA734A1D4EF6B700736DCA /* Debug */,
+				42FA734B1D4EF6B700736DCA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		42FA734C1D4EF6B700736DCA /* Build configuration list for PBXNativeTarget "ZenTip" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				42FA734D1D4EF6B700736DCA /* Debug */,
+				42FA734E1D4EF6B700736DCA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 42FA73321D4EF6B700736DCA /* Project object */;
+}

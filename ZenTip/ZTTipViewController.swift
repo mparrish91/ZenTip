@@ -76,25 +76,39 @@ final class ZTTipViewController: UIViewController, UITableViewDelegate, UITableV
         backgroundImageView.image = UIImage(named: "background")
         backgroundImageView.contentMode = .ScaleToFill
 
-//        amountTextField.font = UIFont(name: "Avenir-Book", size: 20)
-//        amountTextField.textColor = UIColor.whiteColor()
-//        amountTextField.attributedPlaceholder = NSAttributedString(string:"Type here to enter your city..", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName :UIFont(name: "Avenir-Book", size: 20)!])
-//        amountTextField.textAlignment = .Center
-//        amountTextField.delegate = self
-
         descriptionTableView.backgroundColor = UIColor.clearColor()
         descriptionTableView.separatorColor = UIColor.clearColor()
         descriptionTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         descriptionTableView.delegate = self
         descriptionTableView.dataSource = self
 
-
-
         otherServicesButton.setTitle("tipping for other services?", forState: .Normal)
         otherServicesButton.titleLabel?.font = UIFont(name: "Wawati SC", size: 10)
         otherServicesButton.titleLabel?.textColor = UIColor.whiteColor()
         otherServicesButton.addTarget(self, action: #selector(onOtherServicesButtonPressed), forControlEvents: .TouchUpInside)
 
+        amountTextField.font = UIFont(name: "Wawati SC", size: 35)
+        amountTextField.textColor = UIColor.whiteColor()
+        amountTextField.attributedPlaceholder = NSAttributedString(string:"$ Enter an amount", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName :UIFont(name: "Wawati SC", size: 20)!])
+        amountTextField.textAlignment = .Center
+        amountTextField.delegate = self
+
+
+
+        percentLabel.font = UIFont(name: "Wawati SC", size: 12)
+        percentLabel.textColor = UIColor.whiteColor()
+        percentLabel.textAlignment = .Center
+
+        splitLabel.font = UIFont(name: "Wawati SC", size: 12)
+        splitLabel.textColor = UIColor.whiteColor()
+        splitLabel.textAlignment = .Center
+
+        splitPromptLabel.text = "If splitting how many?"
+        splitPromptLabel.font = UIFont(name: "Wawati SC", size: 12)
+        splitPromptLabel.textColor = UIColor.whiteColor()
+        splitPromptLabel.textAlignment = .Center
+
+        resetView()
 
         setConstraints()
 
@@ -108,11 +122,12 @@ final class ZTTipViewController: UIViewController, UITableViewDelegate, UITableV
         self.view.addSubview(backgroundImageView)
         self.view.addSubview(welcomeLabel)
         self.view.addSubview(otherServicesButton)
-//        self.view.addSubview(amountTextField)
-//        self.view.addSubview(percentLabel)
-//        self.view.addSubview(splitTextField)
-//        self.view.addSubview(splitLabel)
-//        self.view.addSubview(totalLabel)
+        self.view.addSubview(amountTextField)
+        self.view.addSubview(percentLabel)
+        self.view.addSubview(splitTextField)
+        self.view.addSubview(splitLabel)
+        self.view.addSubview(splitPromptLabel)
+        self.view.addSubview(totalLabel)
         self.view.addSubview(descriptionTableView)
 
     }
@@ -136,6 +151,8 @@ final class ZTTipViewController: UIViewController, UITableViewDelegate, UITableV
         cell.textLabel?.font = UIFont(name: "Wawati SC", size: 30)
         cell.backgroundColor = UIColor.clearColor()
         cell.contentView.frame = UIEdgeInsetsInsetRect(cell.contentView.frame, UIEdgeInsetsMake(100, 100, 100, 100))
+        cell.selectionStyle = .None
+
 
 
 
@@ -159,6 +176,8 @@ final class ZTTipViewController: UIViewController, UITableViewDelegate, UITableV
             tipPercentage = tipPercentages[0]
 
         }
+
+        setViewForTip()
 
         guard let text = amountTextField.text, billAmount = Double(text)  else{
             return
@@ -208,6 +227,17 @@ final class ZTTipViewController: UIViewController, UITableViewDelegate, UITableV
     }
 
     func resetView() {
+
+        welcomeLabel.hidden = false
+        descriptionTableView.hidden = false
+
+        amountTextField.hidden = true
+        splitLabel.hidden = true
+        percentLabel.hidden = true
+        totalLabel.hidden = true
+
+        splitTextField.hidden = true
+        splitPromptLabel.hidden = true
 
     }
 

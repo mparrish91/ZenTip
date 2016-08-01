@@ -19,6 +19,8 @@ final class ZTTipViewController: UIViewController, UITableViewDelegate, UITableV
 
     private var splitTextField: UITextField
     private var splitLabel: UILabel
+    private var splitPromptLabel: UILabel
+
     private var totalLabel: UILabel
 
     private var descriptionTableView: UITableView
@@ -88,22 +90,13 @@ final class ZTTipViewController: UIViewController, UITableViewDelegate, UITableV
 
 
         otherServicesButton.setTitle("tipping for other services?", forState: .Normal)
-        otherServicesButton.titleLabel?.font = UIFont(name: "Wawati SC", size: 8)
+        otherServicesButton.titleLabel?.font = UIFont(name: "Wawati SC", size: 10)
         otherServicesButton.titleLabel?.textColor = UIColor.whiteColor()
         otherServicesButton.addTarget(self, action: #selector(onOtherServicesButtonPressed), forControlEvents: .TouchUpInside)
 
 
         setConstraints()
 
-
-        for family: String in UIFont.familyNames()
-        {
-            print("\(family)")
-            for names: String in UIFont.fontNamesForFamilyName(family)
-            {
-                print("== \(names)")
-            }
-        }
 
     }
 
@@ -154,6 +147,28 @@ final class ZTTipViewController: UIViewController, UITableViewDelegate, UITableV
     }
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        var tipPercentages = [0.10,0.15,0.20]
+        var tipPercentage = Double()
+
+        if indexPath.item == 0 {
+            tipPercentage = tipPercentages[2]
+        }else if indexPath.item == 1 {
+            tipPercentage = tipPercentages[1]
+        }else {
+            tipPercentage = tipPercentages[0]
+
+        }
+
+        guard let text = amountTextField.text, billAmount = Double(text)  else{
+            return
+        }
+
+        let tip = billAmount * tipPercentage
+        let total = billAmount + tip
+
+        percentLabel.text = "Calculated at " + String(format: "$%.2f", tip)
+        totalLabel.text = String(format: "$%.2f", total)
+
 
     }
 
@@ -173,6 +188,25 @@ final class ZTTipViewController: UIViewController, UITableViewDelegate, UITableV
             })
         }
 
+
+    }
+
+    func setViewForTip() {
+        welcomeLabel.hidden = true
+        descriptionTableView.hidden = true
+
+        amountTextField.hidden = false
+        splitLabel.hidden = false
+        percentLabel.hidden = false
+        totalLabel.hidden = false
+
+        splitTextField.hidden = false
+        splitPromptLabel.hidden = false
+
+
+    }
+
+    func resetView() {
 
     }
 

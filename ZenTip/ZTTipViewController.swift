@@ -46,6 +46,7 @@ final class ZTTipViewController: UIViewController, UITableViewDelegate, UITableV
         self.percentLabel = UILabel()
         self.splitTextField = UITextField()
         self.splitLabel = UILabel()
+        self.splitPromptLabel = UILabel()
         self.totalLabel = UILabel()
         self.descriptionTableView = UITableView(frame: CGRectZero)
 
@@ -240,6 +241,35 @@ final class ZTTipViewController: UIViewController, UITableViewDelegate, UITableV
         otherServicesButton.translatesAutoresizingMaskIntoConstraints = false
         otherServicesButton.bottomAnchor.constraintEqualToAnchor(margins.bottomAnchor, constant: 5).active = true
         otherServicesButton.trailingAnchor.constraintEqualToAnchor(margins.trailingAnchor, constant: 5).active = true
+
+
+        amountTextField.translatesAutoresizingMaskIntoConstraints = false
+        amountTextField.centerYAnchor.constraintEqualToAnchor(view.centerYAnchor, constant: 0).active = true
+        amountTextField.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor, constant: 50).active = true
+        amountTextField.widthAnchor.constraintEqualToAnchor(nil, constant: 150).active = true
+        amountTextField.heightAnchor.constraintEqualToAnchor(nil, constant: 150).active = true
+
+        splitLabel.translatesAutoresizingMaskIntoConstraints = false
+        splitLabel.bottomAnchor.constraintEqualToAnchor(amountTextField.topAnchor, constant: 30).active = true
+        splitLabel.trailingAnchor.constraintEqualToAnchor(margins.trailingAnchor, constant: 10).active = true
+
+        percentLabel.translatesAutoresizingMaskIntoConstraints = false
+        percentLabel.bottomAnchor.constraintEqualToAnchor(amountTextField.topAnchor, constant: 30).active = true
+        percentLabel.trailingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant: 10).active = true
+
+        splitPromptLabel.translatesAutoresizingMaskIntoConstraints = false
+        splitPromptLabel.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor, constant: 0).active = true
+        splitPromptLabel.bottomAnchor.constraintEqualToAnchor(margins.bottomAnchor, constant: 80).active = true
+
+        splitTextField.translatesAutoresizingMaskIntoConstraints = false
+        splitTextField.topAnchor.constraintEqualToAnchor(splitPromptLabel.bottomAnchor, constant: 25).active = true
+        splitTextField.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor, constant: 0).active = true
+        splitTextField.widthAnchor.constraintEqualToAnchor(nil, constant: 150).active = true
+        splitTextField.heightAnchor.constraintEqualToAnchor(nil, constant: 150).active = true
+
+
+
+
 
 
     }

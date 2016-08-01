@@ -27,6 +27,8 @@ final class ZTTipViewController: UIViewController, UITableViewDelegate, UITableV
 
     private var descriptions = ["Amazing", "Good", "Bad"]
 
+    private var tipPercentage = Double()
+
 
 
 
@@ -74,7 +76,7 @@ final class ZTTipViewController: UIViewController, UITableViewDelegate, UITableV
         welcomeLabel.textAlignment = .Center
 
         backgroundImageView.image = UIImage(named: "background")
-        backgroundImageView.contentMode = .ScaleToFill
+        backgroundImageView.contentMode = .ScaleAspectFill
 
         descriptionTableView.backgroundColor = UIColor.clearColor()
         descriptionTableView.separatorColor = UIColor.clearColor()
@@ -92,6 +94,10 @@ final class ZTTipViewController: UIViewController, UITableViewDelegate, UITableV
         amountTextField.attributedPlaceholder = NSAttributedString(string:"$ Enter an amount", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName :UIFont(name: "Wawati SC", size: 20)!])
         amountTextField.textAlignment = .Center
         amountTextField.delegate = self
+        amountTextField.addTarget(self, action: #selector(onEditingChanged), forControlEvents: .EditingChanged)
+
+
+
 
 
 
@@ -153,10 +159,6 @@ final class ZTTipViewController: UIViewController, UITableViewDelegate, UITableV
         cell.contentView.frame = UIEdgeInsetsInsetRect(cell.contentView.frame, UIEdgeInsetsMake(100, 100, 100, 100))
         cell.selectionStyle = .None
 
-
-
-
-
         cell.textLabel?.text = descriptions[indexPath.row]
 
 
@@ -166,18 +168,30 @@ final class ZTTipViewController: UIViewController, UITableViewDelegate, UITableV
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         var tipPercentages = [0.10,0.15,0.20]
-        var tipPercentage = Double()
 
         if indexPath.item == 0 {
             tipPercentage = tipPercentages[2]
+            percentLabel.text = "Calculated at 20%"
+
         }else if indexPath.item == 1 {
             tipPercentage = tipPercentages[1]
+            percentLabel.text = "Calculated at 15%"
+
         }else {
             tipPercentage = tipPercentages[0]
+            percentLabel.text = "Calculated at 10%"
+
 
         }
 
         setViewForTip()
+
+
+
+
+    }
+
+    func onEditingChanged() {
 
         guard let text = amountTextField.text, billAmount = Double(text)  else{
             return
@@ -186,8 +200,12 @@ final class ZTTipViewController: UIViewController, UITableViewDelegate, UITableV
         let tip = billAmount * tipPercentage
         let total = billAmount + tip
 
-        percentLabel.text = "Calculated at " + String(format: "$%.2f", tip)
         totalLabel.text = String(format: "$%.2f", total)
+
+    }
+
+    func onTap(){
+        view.endEditing(true)
 
 
     }

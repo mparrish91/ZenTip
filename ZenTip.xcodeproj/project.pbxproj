@@ -88,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				42FA733F1D4EF6B700736DCA /* ZTTipViewController.swift */,
+				42FA735A1D4EFDC100736DCA /* ZTOtherServicesTableViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -98,7 +99,6 @@
 				42FA73511D4EF6F800736DCA /* ZTSection.swift */,
 				42FA73541D4EF77800736DCA /* ZTOtherServicesObject.swift */,
 				42FA73561D4EF81A00736DCA /* ZTOtherServicesData.swift */,
-				42FA735A1D4EFDC100736DCA /* ZTOtherServicesTableViewController.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";

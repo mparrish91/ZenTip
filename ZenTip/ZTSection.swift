@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Section {
+struct ZTSection {
     var heading : String
     var items : [ZTOtherServicesObject]
 

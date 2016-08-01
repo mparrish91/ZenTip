@@ -8,6 +8,59 @@
 
 import UIKit
 
-class ZTOtherServicesTableViewController: UITableViewController {
+final class ZTOtherServicesTableViewController: UITableViewController {
+
+    private var sections: [ZTSection] = ZTOtherServicesData().getSectionsFromData()
+
+    //MARK: NSObject
+
+    required convenience init?(coder aDecoder: NSCoder) {
+        self.init(aDecoder)
+    }
+
+    init?(_ coder: NSCoder? = nil) {
+
+        if let coder = coder {
+            super.init(coder: coder)
+        }
+        else {
+            super.init(nibName: nil, bundle:nil)
+        }
+
+        self.loadTableView()
+
+    }
+
+
+    //MARK: UITableView
+
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return sections.count
+    }
+
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return sections[section].items.count
+    }
+
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sections[section].heading
+    }
+
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
+
+        cell.textLabel?.text = sections[indexPath.section].items[indexPath.row].service
+        cell.detailTextLabel?.text = sections[indexPath.section].items[indexPath.row].tipAmount
+
+        return cell
+
+    }
+
+
+    func loadTableView() {
+        self.tableView = UITableView(frame: CGRectZero)
+        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+
+    }
 
 }

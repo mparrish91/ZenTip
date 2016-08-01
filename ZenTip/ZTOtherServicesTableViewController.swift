@@ -64,10 +64,8 @@ final class ZTOtherServicesTableViewController: UITableViewController {
 
     func loadTableView() {
         if var otherServicesTableView = tableView {
-            otherServicesTableView = UITableView(frame: CGRectZero)
+            otherServicesTableView = UITableView(frame: self.view.frame)
             otherServicesTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
-
-            otherServicesTableView.frame = self.view.frame
             otherServicesTableView.backgroundColor = UIColor.whiteColor()
             otherServicesTableView.scrollEnabled = true
 

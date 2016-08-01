@@ -28,6 +28,7 @@ final class ZTOtherServicesTableViewController: UITableViewController {
         }
 
         self.loadTableView()
+        self.title = "Other Services"
 
     }
 
@@ -49,6 +50,10 @@ final class ZTOtherServicesTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
 
+        cell.textLabel?.textColor = UIColor(netHex: 0x729351)
+        cell.detailTextLabel?.textColor = UIColor(netHex: 0x729351)
+
+
         cell.textLabel?.text = sections[indexPath.section].items[indexPath.row].service
         cell.detailTextLabel?.text = sections[indexPath.section].items[indexPath.row].tipAmount
 
@@ -58,8 +63,16 @@ final class ZTOtherServicesTableViewController: UITableViewController {
 
 
     func loadTableView() {
-        self.tableView = UITableView(frame: CGRectZero)
-        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        if var otherServicesTableView = tableView {
+            otherServicesTableView = UITableView(frame: CGRectZero)
+            otherServicesTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+
+            otherServicesTableView.frame = self.view.frame
+            otherServicesTableView.backgroundColor = UIColor.whiteColor()
+            otherServicesTableView.scrollEnabled = true
+
+        }
+
 
     }
 

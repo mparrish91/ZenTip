@@ -48,7 +48,7 @@ final class ZTOtherServicesTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as? UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
 
         cell.textLabel?.textColor = UIColor(netHex: 0x729351)
         cell.detailTextLabel?.textColor = UIColor(netHex: 0x729351)
@@ -58,10 +58,10 @@ final class ZTOtherServicesTableViewController: UITableViewController {
         cell.detailTextLabel?.text = sections[indexPath.section].items[indexPath.row].tipAmount
 
         return cell
-    }else {
-    let cell = UITableViewCell()
-            return cell
-    }
+//    }else {
+//    let cell = UITableViewCell()
+//            return cell
+//    }
 }
 
     func loadTableView() {

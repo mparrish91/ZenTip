@@ -17,6 +17,7 @@
 		42FA73591D4EF83700736DCA /* ZTFadingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FA73581D4EF83700736DCA /* ZTFadingLabel.swift */; };
 		42FA735B1D4EFDC100736DCA /* ZTOtherServicesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FA735A1D4EFDC100736DCA /* ZTOtherServicesTableViewController.swift */; };
 		42FA735D1D4F256600736DCA /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FA735C1D4F256600736DCA /* UIColorExtensions.swift */; };
+		42FA735F1D4F41DA00736DCA /* WawaSC-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 42FA735E1D4F419E00736DCA /* WawaSC-Regular.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		42FA73581D4EF83700736DCA /* ZTFadingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZTFadingLabel.swift; sourceTree = "<group>"; };
 		42FA735A1D4EFDC100736DCA /* ZTOtherServicesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZTOtherServicesTableViewController.swift; sourceTree = "<group>"; };
 		42FA735C1D4F256600736DCA /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
+		42FA735E1D4F419E00736DCA /* WawaSC-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "WawaSC-Regular.otf"; path = "../WawaSC-Regular.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 			children = (
 				42FA73581D4EF83700736DCA /* ZTFadingLabel.swift */,
 				42FA735C1D4F256600736DCA /* UIColorExtensions.swift */,
+				42FA735E1D4F419E00736DCA /* WawaSC-Regular.otf */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -161,6 +164,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42FA735F1D4F41DA00736DCA /* WawaSC-Regular.otf in Resources */,
 				42FA73481D4EF6B700736DCA /* LaunchScreen.storyboard in Resources */,
 				42FA73451D4EF6B700736DCA /* Assets.xcassets in Resources */,
 			);

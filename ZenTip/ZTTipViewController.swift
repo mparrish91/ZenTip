@@ -66,7 +66,7 @@ final class ZTTipViewController: UIViewController, UITableViewDelegate, UITableV
 
         welcomeLabel.text = "How was your service?"
         welcomeLabel.numberOfLines = 2
-        welcomeLabel.font = UIFont(name: "Avenir-Book", size: 40)
+        welcomeLabel.font = UIFont(name: "Wawati SC", size: 40)
         welcomeLabel.textColor = UIColor.whiteColor()
         welcomeLabel.textAlignment = .Center
 
@@ -88,7 +88,7 @@ final class ZTTipViewController: UIViewController, UITableViewDelegate, UITableV
 
 
         otherServicesButton.setTitle("tipping for other services?", forState: .Normal)
-        otherServicesButton.titleLabel?.font = UIFont(name: "Avenir-Book", size: 8)
+        otherServicesButton.titleLabel?.font = UIFont(name: "Wawati SC", size: 8)
         otherServicesButton.titleLabel?.textColor = UIColor.whiteColor()
         otherServicesButton.addTarget(self, action: #selector(onOtherServicesButtonPressed), forControlEvents: .TouchUpInside)
 
@@ -139,7 +139,7 @@ final class ZTTipViewController: UIViewController, UITableViewDelegate, UITableV
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
 
         cell.textLabel?.textColor = UIColor.whiteColor()
-        cell.textLabel?.font = UIFont(name: "Avenir-Book", size: 30)
+        cell.textLabel?.font = UIFont(name: "Wawati SC", size: 30)
         cell.backgroundColor = UIColor.clearColor()
         cell.contentView.frame = UIEdgeInsetsInsetRect(cell.contentView.frame, UIEdgeInsetsMake(100, 100, 100, 100))
 
@@ -186,7 +186,7 @@ final class ZTTipViewController: UIViewController, UITableViewDelegate, UITableV
         backgroundImageView.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor).active = true
 
         welcomeLabel.translatesAutoresizingMaskIntoConstraints = false
-        welcomeLabel.topAnchor.constraintEqualToAnchor(view.topAnchor, constant: 15).active = true
+        welcomeLabel.topAnchor.constraintEqualToAnchor(view.topAnchor, constant: 25).active = true
         welcomeLabel.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor, constant: 50).active = true
         welcomeLabel.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor).active = true
 

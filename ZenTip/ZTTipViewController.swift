@@ -162,9 +162,14 @@ final class ZTTipViewController: UIViewController, UITableViewDelegate, UITableV
 
     func onOtherServicesButtonPressed() {
 
+
         if let otherServicesVC = ZTOtherServicesTableViewController() {
+            var nav = UINavigationController()
+            nav.viewControllers = [otherServicesVC]
+
+
             dispatch_async(dispatch_get_main_queue(), {
-                self.presentViewController(otherServicesVC, animated: true, completion: nil)
+                self.presentViewController(nav, animated: true, completion: nil)
             })
         }
 

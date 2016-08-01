@@ -26,9 +26,25 @@ final class ZTOtherServicesTableViewController: UITableViewController {
         else {
             super.init(nibName: nil, bundle:nil)
         }
+        self.tableView = UITableView(frame: CGRectZero)
+        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+
+        navigationController?.navigationBar.barTintColor = UIColor.whiteColor()
+
+        let navLabel = UILabel()
+        navLabel.text = "Other Services"
+        navLabel.sizeToFit()
+        navLabel.font = UIFont(name: "Wawati SC", size: 16)
+        self.navigationItem.titleView = navLabel
+        navLabel.textAlignment = NSTextAlignment.Center
+
+        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: Selector("goBack"))
+        navigationItem.rightBarButtonItem = doneButton
+        doneButton.tintColor = UIColor(netHex: 0x729351)
+
+
 
         self.loadTableView()
-        self.title = "Other Services"
 
     }
 
@@ -48,21 +64,34 @@ final class ZTOtherServicesTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
 
-        cell.textLabel?.textColor = UIColor(netHex: 0x729351)
+        let cell = UITableViewCell(style: .Subtitle, reuseIdentifier: "cell")
+
+
+
         cell.detailTextLabel?.textColor = UIColor(netHex: 0x729351)
 
 
         cell.textLabel?.text = sections[indexPath.section].items[indexPath.row].service
         cell.detailTextLabel?.text = sections[indexPath.section].items[indexPath.row].tipAmount
+        cell.textLabel?.font = UIFont(name: "Wawati SC", size: 14)
+        cell.detailTextLabel?.font = UIFont(name: "Wawati SC", size: 10)
+
 
         return cell
-//    }else {
-//    let cell = UITableViewCell()
-//            return cell
-//    }
+
 }
+
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+
+
+
+    }
+
+
 
     func loadTableView() {
         if var otherServicesTableView = tableView {
@@ -75,5 +104,14 @@ final class ZTOtherServicesTableViewController: UITableViewController {
 
 
     }
+
+
+    func goBack() {
+
+        self.dismissViewControllerAnimated(true, completion: nil)
+
+    }
+
+
 
 }

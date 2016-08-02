@@ -38,6 +38,8 @@ final class ZTTipViewController: UIViewController, UITableViewDelegate, UITableV
 
     private var tipPercentage = Double()
 
+    private var total = Double()
+
 
 
 
@@ -244,7 +246,7 @@ final class ZTTipViewController: UIViewController, UITableViewDelegate, UITableV
         }
 
         let tip = billAmount * tipPercentage
-        let total = billAmount + tip
+        total = billAmount + tip
 
         totalLabel.text = String(format: "$%.2f", total)
 
@@ -256,9 +258,7 @@ final class ZTTipViewController: UIViewController, UITableViewDelegate, UITableV
 
     func onSplitTextFieldChanged() {
 
-        var currentTotal = totalLabel.text
-
-        var newTotal = Int(currentTotal!)! / Int(splitTextField.text!)!
+        var newTotal = total / Double(splitTextField.text!)!
 
         totalLabel.text = String(format: "$%.2f", newTotal)
         splitLabel.text = "Split " + splitTextField.text! + "ways"

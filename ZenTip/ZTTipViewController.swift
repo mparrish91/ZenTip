@@ -100,13 +100,10 @@ final class ZTTipViewController: UIViewController, UITableViewDelegate, UITableV
 
         amountTextField.font = UIFont(name: "Wawati SC", size: 35)
         amountTextField.textColor = UIColor.whiteColor()
-        amountTextField.attributedPlaceholder = NSAttributedString(string:"$ Enter an amount", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName :UIFont(name: "Wawati SC", size: 20)!])
+        amountTextField.attributedPlaceholder = NSAttributedString(string:"$ Enter an amount", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName :UIFont(name: "Wawati SC", size: 38)!])
         amountTextField.textAlignment = .Center
         amountTextField.delegate = self
         amountTextField.addTarget(self, action: #selector(onEditingChanged), forControlEvents: .EditingChanged)
-
-
-
 
 
 
@@ -118,10 +115,21 @@ final class ZTTipViewController: UIViewController, UITableViewDelegate, UITableV
         splitLabel.textColor = UIColor.whiteColor()
         splitLabel.textAlignment = .Center
 
+        totalLabel.font = UIFont(name: "Wawati SC", size: 49)
+        totalLabel.textColor = UIColor.whiteColor()
+        totalLabel.textAlignment = .Center
+
         splitPromptLabel.text = "If splitting how many?"
-        splitPromptLabel.font = UIFont(name: "Wawati SC", size: 12)
+        splitPromptLabel.font = UIFont(name: "Wawati SC", size: 28)
         splitPromptLabel.textColor = UIColor.whiteColor()
         splitPromptLabel.textAlignment = .Center
+
+        splitTextField.font = UIFont(name: "Wawati SC", size: 35)
+        splitTextField.textColor = UIColor.whiteColor()
+        splitTextField.attributedPlaceholder = NSAttributedString(string:"--", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName :UIFont(name: "Wawati SC", size: 30)!])
+        splitTextField.textAlignment = .Center
+        splitTextField.delegate = self
+        splitTextField.addTarget(self, action: #selector(onSplitTextFieldChanged), forControlEvents: .EditingChanged)
 
         let indexPath = NSIndexPath(forItem: 1, inSection: 0)
         descriptionTableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .None, animated: true)
@@ -240,6 +248,21 @@ final class ZTTipViewController: UIViewController, UITableViewDelegate, UITableV
 
         totalLabel.text = String(format: "$%.2f", total)
 
+        splitTextField.hidden = false
+        splitPromptLabel.hidden = false
+
+
+    }
+
+    func onSplitTextFieldChanged() {
+
+        var currentTotal = totalLabel.text
+
+        var newTotal = Int(currentTotal!)! / Int(splitTextField.text!)!
+
+        totalLabel.text = String(format: "$%.2f", newTotal)
+        splitLabel.text = "Split " + splitTextField.text! + "ways"
+
     }
 
     func onTap(){
@@ -295,6 +318,7 @@ final class ZTTipViewController: UIViewController, UITableViewDelegate, UITableV
         splitTextField.hidden = true
         splitPromptLabel.hidden = true
 
+
     }
 
 
@@ -330,28 +354,29 @@ final class ZTTipViewController: UIViewController, UITableViewDelegate, UITableV
 
 
         amountTextField.translatesAutoresizingMaskIntoConstraints = false
-        amountTextField.centerYAnchor.constraintEqualToAnchor(view.centerYAnchor, constant: 0).active = true
-        amountTextField.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor, constant: 50).active = true
-        amountTextField.widthAnchor.constraintEqualToAnchor(nil, constant: 150).active = true
-        amountTextField.heightAnchor.constraintEqualToAnchor(nil, constant: 150).active = true
+        amountTextField.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor, constant: 0).active = true
+        amountTextField.topAnchor.constraintEqualToAnchor(margins.topAnchor, constant: 25).active = true
 
         splitLabel.translatesAutoresizingMaskIntoConstraints = false
-        splitLabel.bottomAnchor.constraintEqualToAnchor(amountTextField.topAnchor, constant: 30).active = true
-        splitLabel.trailingAnchor.constraintEqualToAnchor(margins.trailingAnchor, constant: 10).active = true
+        splitLabel.bottomAnchor.constraintEqualToAnchor(totalLabel.topAnchor, constant: 30).active = true
+        splitLabel.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant: 10).active = true
 
         percentLabel.translatesAutoresizingMaskIntoConstraints = false
-        percentLabel.bottomAnchor.constraintEqualToAnchor(amountTextField.topAnchor, constant: 30).active = true
-        percentLabel.trailingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant: 10).active = true
+        percentLabel.bottomAnchor.constraintEqualToAnchor(totalLabel.topAnchor, constant: 50).active = true
+        percentLabel.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant: 10).active = true
+
+        totalLabel.translatesAutoresizingMaskIntoConstraints = false
+        totalLabel.centerYAnchor.constraintEqualToAnchor(view.centerYAnchor, constant: 0).active = true
+        totalLabel.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor, constant: 50).active = true
+
 
         splitPromptLabel.translatesAutoresizingMaskIntoConstraints = false
         splitPromptLabel.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor, constant: 0).active = true
-        splitPromptLabel.bottomAnchor.constraintEqualToAnchor(margins.bottomAnchor, constant: 80).active = true
+        splitPromptLabel.bottomAnchor.constraintEqualToAnchor(margins.bottomAnchor, constant: -80).active = true
 
         splitTextField.translatesAutoresizingMaskIntoConstraints = false
-        splitTextField.topAnchor.constraintEqualToAnchor(splitPromptLabel.bottomAnchor, constant: 25).active = true
+        splitTextField.topAnchor.constraintEqualToAnchor(splitPromptLabel.bottomAnchor, constant: 10).active = true
         splitTextField.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor, constant: 0).active = true
-        splitTextField.widthAnchor.constraintEqualToAnchor(nil, constant: 150).active = true
-        splitTextField.heightAnchor.constraintEqualToAnchor(nil, constant: 150).active = true
 
 
 

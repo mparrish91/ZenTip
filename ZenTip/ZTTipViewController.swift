@@ -33,6 +33,8 @@ final class ZTTipViewController: UIViewController, UITableViewDelegate, UITableV
     private var totalLabel: UILabel
 
     private var descriptionTableView: UITableView
+    private var backButton: UIButton
+
 
     private var descriptions = ["Amazing", "Good", "Bad"]
 
@@ -62,6 +64,8 @@ final class ZTTipViewController: UIViewController, UITableViewDelegate, UITableV
         self.splitPromptLabel = UILabel()
         self.totalLabel = UILabel()
         self.descriptionTableView = UITableView(frame: CGRectZero)
+        self.backButton = UIButton()
+
 
         if let coder = coder {
             super.init(coder: coder)
@@ -82,7 +86,7 @@ final class ZTTipViewController: UIViewController, UITableViewDelegate, UITableV
 
         welcomeLabel.text = "How was your service?"
         welcomeLabel.numberOfLines = 2
-        welcomeLabel.font = UIFont(name: "Wawati SC", size: 40)
+        welcomeLabel.font = UIFont(name: "Wawati SC", size: 36)
         welcomeLabel.textColor = UIColor.whiteColor()
         welcomeLabel.textAlignment = .Center
 
@@ -136,6 +140,15 @@ final class ZTTipViewController: UIViewController, UITableViewDelegate, UITableV
         let indexPath = NSIndexPath(forItem: 1, inSection: 0)
         descriptionTableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .None, animated: true)
 
+        let image = UIImage(named: "backButton")
+        backButton.setImage(image, forState: .Normal)
+        backButton.tintColor = UIColor.whiteColor()
+        backButton.addTarget(self, action: #selector(ZTTipViewController.resetView), forControlEvents: .TouchUpInside)
+
+
+
+        UIApplication.sharedApplication().statusBarHidden = true
+
 
         resetView()
 
@@ -158,6 +171,8 @@ final class ZTTipViewController: UIViewController, UITableViewDelegate, UITableV
         self.view.addSubview(splitPromptLabel)
         self.view.addSubview(totalLabel)
         self.view.addSubview(descriptionTableView)
+        self.view.addSubview(backButton)
+
 
     }
 
@@ -301,6 +316,8 @@ final class ZTTipViewController: UIViewController, UITableViewDelegate, UITableV
 
         splitTextField.hidden = false
         splitPromptLabel.hidden = false
+        backButton.hidden = false
+
 
 
     }
@@ -317,6 +334,7 @@ final class ZTTipViewController: UIViewController, UITableViewDelegate, UITableV
 
         splitTextField.hidden = true
         splitPromptLabel.hidden = true
+        backButton.hidden = true
 
 
     }
@@ -379,6 +397,12 @@ final class ZTTipViewController: UIViewController, UITableViewDelegate, UITableV
         splitTextField.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor, constant: 0).active = true
 
 
+
+        backButton.translatesAutoresizingMaskIntoConstraints = false
+        backButton.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant: 3).active = true
+        backButton.topAnchor.constraintEqualToAnchor(margins.topAnchor, constant: 5).active = true
+        backButton.widthAnchor.constraintEqualToAnchor(nil, constant: 20).active = true
+        backButton.heightAnchor.constraintEqualToAnchor(nil, constant: 20).active = true
 
 
 

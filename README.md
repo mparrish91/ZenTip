@@ -22,9 +22,8 @@ The following **optional** features are implemented:
 The following **additional** features are implemented:
 
 - [ ] List anything else that you can get done to improve the app functionality!
-Other areas to add for my next submission, gearing for early next week
--UIAnimations
--Locale specific currency and currency
+- Other areas to add for my next submission, gearing for early next week
+-UIAnimations, Locale specific currency and currency
 
 ## Video Walkthrough 
 

@@ -39,7 +39,7 @@ Describe any challenges encountered while building the app.
 
 - properly positioning the UI elements and working with auto layout
 - keeping code organized, because I chose to do the UI in code, there is a lot more UI code - challenged to keep it organized and readable
-- adding animation, I previously have written an animated label, I had difficult getting the label to animate in this app and plan to return to that in the update
+- adding animation, I previously have written an animated label, I had difficultly getting the label to animate in this app and plan to return to that in the update
 
 ## License
 

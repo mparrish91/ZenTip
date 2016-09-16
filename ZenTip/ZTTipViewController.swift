@@ -155,17 +155,7 @@ final class ZTTipViewController: UIViewController, UITableViewDelegate, UITableV
         setConstraints()
 
 
-        //Looks for single or multiple taps.
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
-        view.addGestureRecognizer(tap)
     }
-    
-    //Calls this function when the tap is recognized.
-    func dismissKeyboard() {
-        //Causes the view (or one of its embedded text fields) to resign the first responder status.
-        view.endEditing(true)
-    }
-    
 
 
 
@@ -259,9 +249,11 @@ final class ZTTipViewController: UIViewController, UITableViewDelegate, UITableV
 
         setViewForTip()
 
-
-
-
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
 
     func onEditingChanged() {
